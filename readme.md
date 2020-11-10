@@ -111,3 +111,75 @@ The evaluation method chosen is a **self-evaluation** based on the following ind
  ## Good luck !
 
 ![](js-2.gif)
+
+
+
+<!-- Votre mission
+Vous travaillez au sein du département Multimédia d'une des institutions de l'Union européenne. Ce matin, Johnny Hasnoclew, votre chef de projet, vous envoie en mission: l'un des journalistes internes a publié un nouvel article sur le site internet de l'institution. L'article en question est déjà intégré à un fichier html / css / Javascript .
+
+Il vous demande de le rendre plus riche , plus interactif , plus ... sexy (L'utilisation de cet adjectif spécifique indique que Johnny a certainement travaillé dans la publicité avant, le pauvre type).
+
+C'est exactement ce que vous allez faire, en ajoutant deux graphiques de visualisation de données interactifs à l' aide de javascript. Ces graphiques seront interactifs dans le sens où l'utilisateur peut manipuler le graphique, comme filtrer les données, ou révéler des données détaillées lorsque la souris le survole. Vous êtes libre de concevoir l'interaction dans votre projet.
+
+1. Données en ligne (données dans le document)
+Dans ce fichier html, vous trouverez deux tableaux de données. Utilisez JavaScript pour parcourir le DOM pour insérer juste au-dessus de chacune de ces tables une représentation de ses données sous la forme d'un graphe interactif.
+
+Si javascript est désactivé, le graphique n'apparaît pas. Si javascript est activé, le graphique apparaît entre le titre et le tableau.
+
+2. Données à distance, en temps réel, via ajax
+Il y a des données à cette URL: https://canvasjs.com/services/data/datapoints.php
+
+Récupérez les données via Ajax et utilisez-les pour insérer un graphique qui s'actualise toutes les secondes, juste en dessous du titre principal ( h1) de l'article.
+
+N'hésitez pas à adapter le code fourni dans ce tutoriel: Live Updating Charts from JSON API & AJAX , mais adaptez-le à cette bibliothèque tierce: chart.js ou ToastUi-Chart , car ce tutoriel en utilise un autre (non gratuit) bibliothèque (canvasJS).
+
+Encore une fois : si javascript est désactivé, le graphique n'apparaît pas. Si javascript est activé, le graphique apparaît.
+
+Comment allons-nous faire cela?
+Utilisez une bibliothèque javascript qui facilite la tâche au lieu d'utiliser uniquement "Vanilla Javascript" (= utiliser javascript sans bibliothèques). Si vous n'aviez jamais codé en javascript avant BeCode, utilisez chart.js ou ToastUi-Chart . Si vous aviez déjà une bonne connaissance de Javascript avant de passer à BeCode, vous pouvez directement utiliser la bibliothèque D3.js - Data-Driven Documents , qui est plus complexe mais offre de nombreuses possibilités.
+Soyez formé à leur utilisation.
+Attaquez le problème en recherchant un bon chemin logique. Décomposez-le en petits problèmes , en étapes progressives . Engagez-vous à mesure que vous avancez. D'abord le DOM, accédez au bon endroit, puis récupérez les données, puis générez le graphe. Quelque chose comme ca😉
+Une méthode de réflexion: La rétro-ingénierie de votre objectif: commencez par la fin et remontez le fil des dépendances jusqu'au point de départ. Cela donne quelque chose comme ça:
+Pour avoir un graphique, vous avez besoin de données. Je dois donc les récupérer.
+Où sont ces données?
+Pour avoir un graphique, je dois trouver le bon endroit dans le DOM, comment puis-je faire cela?
+Pour obtenir un graphique, j'utiliserai cette bibliothèque de visualisation de données . Comment ça marche?
+...
+Contraintes
+Vous ne pouvez pas modifier le fichier html.
+Vous avez le choix du type de graphisme. Considère le plus pertinent en fonction des données et de l'histoire qu'ils peuvent «raconter».
+Le choix de la librairie javascript est limité aux 2 librairies proposées (il en existe bien d'autres, mais ce sont des références et sont très appréciées)
+S'entraider (dans une certaine mesure)
+Vous pouvez vous entraider dans ces deux conditions:
+
+Vous avez d'abord cherché seul et lu ceci ( Comment demander l'aide d'un développeur senior🥇)
+La personne aidant ne fournit pas de code prêt à l'emploi et ne code pas pour l'autre . L'objectif reste d'apprendre, non de résoudre. Le résultat est moins important que le chemin. Aide en posant des questions, en essayant d'amener l'autre personne à trouver la réponse par elle-même.
+Évaluation
+La méthode d'évaluation choisie est une auto-évaluation basée sur les indicateurs suivants:
+
+1. manipulation du DOM:
+ J'ai pu trouver le bon sélecteur pour le faire.
+ J'ai pu injecter le graphique au bon endroit sur la page via javascript.
+ J'ai pu récupérer les données html dans un format adapté à mon code javascript.
+2. Demandez ajax / fetch:
+ J'ai pu recevoir la réponse du serveur distant dans json.
+ Ensuite, j'ai pu créer une fonction de rappel pour traiter ces données.
+3. Utilisation de bibliothèques tierces :
+ J'ai pu intégrer la bibliothèque tierce dans mon application.
+ J'ai utilisé la documentation fournie par la bibliothèque.
+ J'ai pu générer les 2 graphiques de données en ligne.
+ J'ai pu générer le graphique "données distantes".
+4. Résolution de problèmes:
+ Rigueur syntaxique: j'ai pu traduire les processus que j'imaginais en syntaxe javascript.
+Pensée logique: grâce à des itérations et des essais et erreurs, j'ai pu trouver un chemin logique qui fonctionne pour résoudre les problèmes soulevés par la demande du client. Plus précisément:
+ J'ai pu générer les 2 graphiques de données en ligne.
+ J'ai pu générer le graphique "données distantes".
+ J'ai pu créer une fonction de rappel pour traiter les données distantes (reçues via ajax).
+ J'ai pu actualiser le graphique en temps réel en temps réel.
+ J'ai pu afficher les données détaillées en survolant la souris.
+5. Débogage:
+ J'utilise la console pour comprendre ce qui se passe et comparer ce que j'essaie de programmer avec ce que fait la machine.
+6. Séparation des préoccupations:
+ Si je désactive javascript, l'expérience utilisateur est satisfaisante, l'utilisateur a accès aux données et au contenu
+ Si j'active javascript, les tableaux sont améliorés avec un graphique interactif.
+Bonne chance ! -->
