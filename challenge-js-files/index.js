@@ -1,25 +1,82 @@
 
 document.getElementById("firstHeading").insertAdjacentHTML("afterend",'<canvas id="line-chart2" width="800" height="450"></canvas>');
 
-let arrS = [];
+let arr = [];
 
-fetch('https://canvasjs.com/services/data/datapoints.php', 1000)
-.then(response => response.json())
-.then(data => arrS.push(data));
+// fetch('https://canvasjs.com/services/data/datapoints.php')
+// .then(response => response.json())
+// .then(data => {
+//   arr.push(data);
+//   console.log(arr[0]);
 
-console.log(arrS);
-new Chart(document.getElementById("line-chart2"), {
-  type: 'line',
-  data: {
-    labels: ["0", "5","10", "15","20", "25","30"],
-    datasets: arrS
-  },
-  options: {
-    title: {
-      display: true,
-    }
-  }
-});
+//   let labels1 = [];
+//   let data1 = [];
+
+//   arr[0].forEach(element => {
+//     labels1.push(element[0]);
+//     data1.push(element[1]);
+//   });
+ 
+//   new Chart(document.getElementById("line-chart2"), {
+//     type: 'line',
+//     data: {
+//       labels: labels1,
+//       datasets: [{ 
+//         data: data1, 
+//         borderColor: "#3e95cd",
+//         fill: false
+//        }]
+//     }
+//   });
+//   // setTimeout(function(){updateChart()}, 1000);
+// });
+
+setInterval(function(){
+  fetch('https://canvasjs.com/services/data/datapoints.php')
+  .then(response => response.json())
+  .then(data => {
+    
+    arr.push(data);
+    console.log(arr[0]);
+
+    let labels1 = [];
+    let data1 = [];
+
+    arr[0].forEach(element => {
+      labels1.push(element[0]);
+      data1.push(element[1]);
+    });
+  
+    new Chart(document.getElementById("line-chart2"), {
+      type: 'line',
+      data: {
+        labels: labels1,
+        datasets: [{ 
+          data: data1, 
+          borderColor: "#3e95cd",
+          fill: false
+        }]
+      }
+    })
+  })
+}, 1000);
+  
+
+
+
+
+
+// new Chart(document.getElementById("line-chart2"), {
+//   type: 'line',
+//   data: {
+//     labels: ["0", "1","2", "15","20", "25","30"], 
+//     datasets: [{ 
+//       data: ["100","200","300","400"], 
+//       borderColor: "#3e95cd",
+//       fill: false
+//      }]
+//   }
+// });
 
 
 
@@ -37,7 +94,7 @@ function getRandomColor() {
 //_____________________________________________________________________________________________
 
 
-document.getElementById("table1").insertAdjacentHTML("beforebegin",'<canvas id="line-chart" width="800" height="450"></canvas>');
+document.getElementById("table1").insertAdjacentHTML("beforebegin",'<canvas id="graphiqueOne" width="800" height="450"></canvas>');
 
 let years = Array.from(document.querySelectorAll("#table1 tbody tr")[0].children);
 
@@ -73,7 +130,7 @@ datasets.forEach(datas => {
   datasetTableOne.push(object)
 });
 
-new Chart(document.getElementById("line-chart"), {
+new Chart(document.getElementById("graphiqueOne"), {
     type: 'line',
     data: {
       labels: labelsTableOne,
@@ -119,7 +176,7 @@ new Chart(document.getElementById("line-chart"), {
 
 
 
-document.getElementById("table2").insertAdjacentHTML("beforebegin",'<canvas id="mixed-chart" width="800" height="450"></canvas>');
+document.getElementById("table2").insertAdjacentHTML("beforebegin",'<canvas id="graphiqueTwo" width="800" height="450"></canvas>');
 
 let labelsTableTwo = ["2007-09","2010-12"];
 
@@ -143,7 +200,7 @@ datasetsT2.forEach(datas => {
 
   object.data = arrData;
   object.label = datas.children[1].innerText;
-  object.type = "line";
+  object.type = "bar";
   object.borderColor = getRandomColor();
   object.fill = false;
   datasetsTableTwo.push(object)
@@ -151,11 +208,11 @@ datasetsT2.forEach(datas => {
 
 
 
-new Chart(document.getElementById("mixed-chart"), {
+new Chart(document.getElementById("graphiqueTwo"), {
   type: 'bar',
   data: {
     labels: labelsTableTwo,
-    datasets: datasetsTableTwo
+    datasets: datasetsTableTwo,
     //________________________________________________________________
     // datasets: [{
     //     label: "Europe",
