@@ -202,6 +202,7 @@ datasetsT2.forEach(datas => {
   object.label = datas.children[1].innerText;
   object.type = "bar";
   object.borderColor = getRandomColor();
+  object.backgroundColor = getRandomColor();
   object.fill = false;
   datasetsTableTwo.push(object)
 });
