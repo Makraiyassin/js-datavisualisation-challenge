@@ -1,45 +1,32 @@
+// AJAX //
+
+// let mydatas = new XMLHttpRequest();
+// mydatas.open("get", "https://canvasjs.com/services/data/datapoints.php", true);
+// mydatas.send()
+
+// if (mydatas.status === 200) {
+//   // parfait !
+//   console.log(mydatas.response)
+// } else {
+//   console.log("erreur")
+// }
+
+
+//==================================================================================================
+
 document.getElementById("firstHeading").insertAdjacentHTML("beforebegin",'<button id="run" style="background-color : blue; color : white">show graphs</button>  ');
 document.getElementById("run").addEventListener("click", function(){
 
   document.getElementById("firstHeading").insertAdjacentHTML("afterend",'<canvas id="graphiqueZero" width="800" height="450"></canvas>');
 
-  let arr = [];
-
-  // fetch('https://canvasjs.com/services/data/datapoints.php')
-  // .then(response => response.json())
-  // .then(data => {
-  //   arr.push(data);
-  //   console.log(arr[0]);
-
-  //   let labels1 = [];
-  //   let data1 = [];
-
-  //   arr[0].forEach(element => {
-  //     labels1.push(element[0]);
-  //     data1.push(element[1]);
-  //   });
-  
-  //   new Chart(document.getElementById("line-chart2"), {
-  //     type: 'line',
-  //     data: {
-  //       labels: labels1,
-  //       datasets: [{ 
-  //         data: data1, 
-  //         borderColor: "#3e95cd",
-  //         fill: false
-  //        }]
-  //     }
-  //   });
-  //   // setTimeout(function(){updateChart()}, 1000);
-  // });
-
-  setInterval(function(){
-    fetch('https://canvasjs.com/services/data/datapoints.php')
+  setInterval(async function(){
+    fetch(`https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=${Math.floor(Math.random()*10)}&length=10&type=json`)
     .then(response => response.json())
     .then(data => {
-      
+
+      let arr = [];
+
       arr.push(data);
-      console.log(arr[0]);
 
       let labels1 = [];
       let data1 = [];
@@ -62,24 +49,6 @@ document.getElementById("run").addEventListener("click", function(){
       })
     })
   }, 1000);
-    
-
-
-
-
-
-  // new Chart(document.getElementById("line-chart2"), {
-  //   type: 'line',
-  //   data: {
-  //     labels: ["0", "1","2", "15","20", "25","30"], 
-  //     datasets: [{ 
-  //       data: ["100","200","300","400"], 
-  //       borderColor: "#3e95cd",
-  //       fill: false
-  //      }]
-  //   }
-  // });
-
 
 
   //____________________________________________________________________________________________
@@ -137,34 +106,6 @@ document.getElementById("run").addEventListener("click", function(){
       data: {
         labels: labelsTableOne,
         datasets: datasetTableOne
-        //__________________________________________________
-          // datasets: [{ 
-          //     data: [86,114,106,106,107,111,133,221,783,2478],
-          //     label: "Africa",
-          //     borderColor: "#3e95cd",
-          //     fill: false
-          //   }, { 
-          //     data: [282,350,411,502,635,809,947,1402,3700,5267],
-          //     label: "Asia",
-          //     borderColor: "#8e5ea2",
-          //     fill: false
-          //   }, { 
-          //     data: [168,170,178,190,203,276,408,547,675,734],
-          //     label: "Europe",
-          //     borderColor: "#3cba9f",
-          //     fill: false
-          //   }, { 
-          //     data: [40,20,10,16,24,38,74,167,508,784],
-          //     label: "Latin America",
-          //     borderColor: "#e8c3b9",
-          //     fill: false
-          //   }, { 
-          //     data: [6,3,2,2,7,26,82,172,312,433],
-          //     label: "North America",
-          //     borderColor: "#c45850",
-          //     fill: false
-          //   }
-        // ]
       },
       options: {
         title: {
@@ -194,8 +135,6 @@ document.getElementById("run").addEventListener("click", function(){
     data.shift()
     data.shift()
 
-    //======================
-
     data.forEach(x => {
       arrData.push(parseInt(x.innerText))
     })
@@ -216,7 +155,102 @@ document.getElementById("run").addEventListener("click", function(){
     data: {
       labels: labelsTableTwo,
       datasets: datasetsTableTwo,
-      //________________________________________________________________
+    },
+  });
+})
+
+//_____________________________________________________________________________________________________
+
+document.getElementById("firstHeading").insertAdjacentHTML("beforebegin",'<button id="run2" style="background-color : blue; color : white">not show graphs</button> <br> <br>');
+
+document.getElementById("run2").addEventListener("click", function(){
+
+  document.getElementById("graphiqueZero").remove()
+  document.getElementById("graphiqueOne").remove()
+  document.getElementById("graphiqueTwo").remove()
+
+})
+
+//===============================================================================================================
+
+// commentaire graphique 0 :
+
+  // fetch('https://canvasjs.com/services/data/datapoints.php')
+  // .then(response => response.json())
+  // .then(data => {
+  //   arr.push(data);
+  //   console.log(arr[0]);
+
+  //   let labels1 = [];
+  //   let data1 = [];
+
+  //   arr[0].forEach(element => {
+  //     labels1.push(element[0]);
+  //     data1.push(element[1]);
+  //   });
+  
+  //   new Chart(document.getElementById("line-chart2"), {
+  //     type: 'line',
+  //     data: {
+  //       labels: labels1,
+  //       datasets: [{ 
+  //         data: data1, 
+  //         borderColor: "#3e95cd",
+  //         fill: false
+  //        }]
+  //     }
+  //   });
+  //   // setTimeout(function(){updateChart()}, 1000);
+  // });
+
+
+
+  // new Chart(document.getElementById("line-chart2"), {
+  //   type: 'line',
+  //   data: {
+  //     labels: ["0", "1","2", "15","20", "25","30"], 
+  //     datasets: [{ 
+  //       data: ["100","200","300","400"], 
+  //       borderColor: "#3e95cd",
+  //       fill: false
+  //      }]
+  //   }
+  // });
+
+
+// Commentaires graphique 1 : 
+
+          // datasets: [{ 
+          //     data: [86,114,106,106,107,111,133,221,783,2478],
+          //     label: "Africa",
+          //     borderColor: "#3e95cd",
+          //     fill: false
+          //   }, { 
+          //     data: [282,350,411,502,635,809,947,1402,3700,5267],
+          //     label: "Asia",
+          //     borderColor: "#8e5ea2",
+          //     fill: false
+          //   }, { 
+          //     data: [168,170,178,190,203,276,408,547,675,734],
+          //     label: "Europe",
+          //     borderColor: "#3cba9f",
+          //     fill: false
+          //   }, { 
+          //     data: [40,20,10,16,24,38,74,167,508,784],
+          //     label: "Latin America",
+          //     borderColor: "#e8c3b9",
+          //     fill: false
+          //   }, { 
+          //     data: [6,3,2,2,7,26,82,172,312,433],
+          //     label: "North America",
+          //     borderColor: "#c45850",
+          //     fill: false
+          //   }
+        // ]
+
+
+// Commentaire graphique 2 :
+
       // datasets: [{
       //     label: "Europe",
       //     type: "line",
@@ -242,24 +276,11 @@ document.getElementById("run").addEventListener("click", function(){
       //     data: [133,221,783,2478]
       //   }
       // ]
-    },
-    // options: {
-    //   title: {
-    //     display: true,
-    //     text: 'Population growth (millions): Europe & Africa'
-    //   },
-    //   legend: { display: false }
-    // }
-  });
 
-})
-
-document.getElementById("firstHeading").insertAdjacentHTML("beforebegin",'<button id="run2" style="background-color : blue; color : white">not show graphs</button> <br> <br>');
-
-document.getElementById("run2").addEventListener("click", function(){
-
-  document.getElementById("graphiqueZero").remove()
-  document.getElementById("graphiqueOne").remove()
-  document.getElementById("graphiqueTwo").remove()
-
-})
+      // options: {
+      //   title: {
+      //     display: true,
+      //     text: 'Population growth (millions): Europe & Africa'
+      //   },
+      //   legend: { display: false }
+      // }
